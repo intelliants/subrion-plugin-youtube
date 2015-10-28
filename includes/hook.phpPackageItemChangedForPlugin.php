@@ -12,7 +12,7 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 	$field = 'youtube_video';
 	$pages = array(
 		'accounts' => array('view_member', 'profile'),
-		'autos' => array('submit_auto', 'auto_edit'),
+		'autos' => array('autos_add', 'autos_edit', 'autos_view'),
 		'articles' => array('submit_article', 'edit_article'),
 		'estates' => array('estate_submit', 'estate_edit'),
 		'listings' => array('add_listing', 'edit_listing')
@@ -58,7 +58,7 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 				break;
 
 			case '-':
-				$iaDb->update(array('status' => 'approval'), "`name` = '$field' AND `item` = '$item'", null, 'fields');
+				$iaDb->update(array('status' => 'approval'), "`name` = '$field' && `item` = '$item'", null, 'fields');
 				break;
 		}
 	}

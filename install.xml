@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <plugin name="youtube">
 	<title>Youtube Video</title>
-	<summary>Makes possible to assign a video from Youtube.</summary>
+	<summary>Makes possible to assign a video from Youtube</summary>
 	<author>Intelliants LLC</author>
 	<contributor>Intelliants LLC</contributor>
-	<version>3.2.0</version>
-	<date>2014-11-19</date>
-	<compatibility>3.2</compatibility>
+	<version>4.0.0</version>
+	<date>2015-10-28</date>
+	<compatibility>4.0</compatibility>
 
 	<phrases>
 		<phrase category="common" key="youtube_video">Youtube video</phrase>
