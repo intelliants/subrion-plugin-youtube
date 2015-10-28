@@ -12,7 +12,7 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 	$field = 'youtube_video';
 	$pages = array(
 		'accounts' => array('view_member', 'profile'),
-		'autos' => array('autos_add', 'autos_edit', 'autos_view'),
+		'autos' => array('autos_add', 'autos_edit'),
 		'articles' => array('submit_article', 'edit_article'),
 		'estates' => array('estate_submit', 'estate_edit'),
 		'listings' => array('add_listing', 'edit_listing')
