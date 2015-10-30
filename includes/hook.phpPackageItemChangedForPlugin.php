@@ -26,7 +26,7 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 			case '+':
 				if($iaDb->exists('`item` = :item AND `name` = :field_name', array('item' => $item, 'field_name' => $field), 'fields'))
 				{
-					$iaDb->update(array('status' => 'active'), "`name` = '$field' AND `item` = '$item'", null, 'fields');
+					$iaDb->update(array('status' => iaCore::STATUS_ACTIVE), "`name` = '$field' AND `item` = '$item'", null, 'fields');
 				}
 				else
 				{
@@ -39,27 +39,26 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 						'name' => $field,
 						'type' => 'text',
 						'length' => 128,
-						'status' => 'active'
+						'status' => iaCore::STATUS_ACTIVE
 					), false, 'fields');
 					if (isset($pages[$item]))
 					{
-						$data = array();
+						$rows = array();
 						foreach ($pages[$item] as $page)
 						{
-							$data[] = array(
+							$rows[] = array(
 								'page_name' => $page,
 								'field_id' => $id,
 								'extras' => $plugin
 							);
 						}
-						$iaDb->insert($data, false, 'fields_pages');
+						$iaDb->insert($rows, false, 'fields_pages');
 					}
 				}
 				break;
 
 			case '-':
-				$iaDb->update(array('status' => 'approval'), "`name` = '$field' && `item` = '$item'", null, 'fields');
-				break;
+				$iaDb->update(array('status' => iaCore::STATUS_APPROVAL), "`name` = '$field' && `item` = '$item'", null, 'fields');
 		}
 	}
 }
