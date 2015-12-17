@@ -4,7 +4,7 @@
 			<object width="425" height="355">
 				<param name="movie" value="http://www.youtube.com/v/{$youtube_video}&rel=1"></param>
 				<param name="wmode" value="transparent"></param>
-				<embed src="http://www.youtube.com/v/{$youtube_video}&rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed>
+				<embed src="http://www.youtube.com/v/{$youtube_video}&rel=1" type="application/x-shockwave-flash" wmode="transparent" allowfullscreen="true" width="425" height="355"></embed>
 			</object>
 		</div>
 	{/capture}
