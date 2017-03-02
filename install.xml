@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<plugin name="youtube">
+<module type="plugin" name="youtube">
 	<title>Youtube Video</title>
 	<summary>Makes possible to assign a video from Youtube</summary>
 	<author>Intelliants LLC</author>
 	<contributor>Intelliants LLC</contributor>
-	<version>4.0.0</version>
-	<date>2015-12-17</date>
-	<compatibility>4.0</compatibility>
+	<version>4.1.0</version>
+	<date>2017-03-02</date>
+	<compatibility>4.1</compatibility>
 
 	<phrases>
 		<phrase category="common" key="youtube_video">Youtube video</phrase>
-		<phrase category="common" key="field_youtube_video">Youtube video</phrase>
+		<phrase category="common" key="field_autos_youtube_video">Youtube video</phrase>
+		<phrase category="common" key="field_articles_youtube_video">Youtube video</phrase>
+		<phrase category="common" key="field_estates_youtube_video">Youtube video</phrase>
+		<phrase category="common" key="field_listings_youtube_video">Youtube video</phrase>
 	</phrases>
 
 	<config group="miscellaneous" name="youtube" type="divider" description="Youtube">Youtube</config>
@@ -22,8 +25,8 @@
 	</fields>
 
 	<hooks>
-		<hook name="phpViewListingBeforeStart" type="php" filename="plugins/youtube/includes/hook.phpViewListingBeforeStart.php" page_type="front"><![CDATA[]]></hook>
-		<hook name="smartyItemViewBeforeTabs" type="smarty" filename="plugins/youtube/templates/tab.tpl" page_type="front"><![CDATA[]]></hook>
-		<hook name="phpPackageItemChangedForPlugin" type="php" filename="plugins/youtube/includes/hook.phpPackageItemChangedForPlugin.php" page_type="admin"><![CDATA[]]></hook>
+		<hook name="phpViewListingBeforeStart" type="php" filename="hook.phpViewListingBeforeStart" page_type="front"><![CDATA[]]></hook>
+		<hook name="smartyItemViewBeforeTabs" type="smarty" filename="tab" page_type="front"><![CDATA[]]></hook>
+		<hook name="phpPackageItemChangedForPlugin" type="php" filename="hook.phpPackageItemChangedForPlugin" page_type="admin"><![CDATA[]]></hook>
 	</hooks>
-</plugin>
+</module>

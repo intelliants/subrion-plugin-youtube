@@ -34,7 +34,7 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 					$iaDb->query($sql);
 
 					$id = $iaDb->insert(array(
-						'extras' => $plugin,
+						'module' => $plugin,
 						'item' => $item,
 						'name' => $field,
 						'type' => 'text',
@@ -48,8 +48,7 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 						{
 							$rows[] = array(
 								'page_name' => $page,
-								'field_id' => $id,
-								'extras' => $plugin
+								'field_id' => $id
 							);
 						}
 						$iaDb->insert($rows, false, 'fields_pages');
