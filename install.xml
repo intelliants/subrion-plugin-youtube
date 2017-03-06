@@ -5,20 +5,16 @@
 	<author>Intelliants LLC</author>
 	<contributor>Intelliants LLC</contributor>
 	<version>4.1.0</version>
-	<date>2017-03-02</date>
+	<date>2017-03-06</date>
 	<compatibility>4.1</compatibility>
 
 	<phrases>
 		<phrase category="common" key="youtube_video">Youtube video</phrase>
-		<phrase category="common" key="field_autos_youtube_video">Youtube video</phrase>
-		<phrase category="common" key="field_articles_youtube_video">Youtube video</phrase>
-		<phrase category="common" key="field_estates_youtube_video">Youtube video</phrase>
-		<phrase category="common" key="field_listings_youtube_video">Youtube video</phrase>
 	</phrases>
 
 	<config group="miscellaneous" name="youtube" type="divider" description="Youtube">Youtube</config>
 	<config group="miscellaneous" name="youtube_items_enabled" type="itemscheckbox" description="List of items Youtube is enabled for"><![CDATA[members]]></config>
-	<config group="miscellaneous" name="youtube_items_implemented" type="hidden" description="">members,articles,listings,estates,autos,coupons,shops,ypages</config>
+	<config group="miscellaneous" name="youtube_items_implemented" type="hidden" description="">members,articles,listings,estates,autos,autos_parts,autos_services,coupons,shops,ypages</config>
 
 	<fields>
 		<field name="youtube_video" item="members" type="text" group="general" page="profile" length="128">Youtube Video</field>
