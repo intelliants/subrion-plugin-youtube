@@ -14,7 +14,7 @@
 
 	<config group="miscellaneous" name="youtube" type="divider" description="Youtube">Youtube</config>
 	<config group="miscellaneous" name="youtube_items_enabled" type="itemscheckbox" description="List of items Youtube is enabled for"><![CDATA[members]]></config>
-	<config group="miscellaneous" name="youtube_items_implemented" type="hidden" description="">members,articles,listings,estates,autos,autos_parts,autos_services,coupons,shops,ypages</config>
+	<config group="miscellaneous" name="youtube_items_implemented" type="hidden" description="">members,articles,listings,estates,autos,autos_parts,autos_services,coupons,shops,venues</config>
 
 	<fields>
 		<field name="youtube_video" item="members" type="text" group="general" page="profile" length="128">Youtube Video</field>
