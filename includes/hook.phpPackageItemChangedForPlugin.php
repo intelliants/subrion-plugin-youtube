@@ -33,15 +33,15 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 
 	$plugin = 'youtube';
 	$field = 'youtube_video';
-	$pages = array(
-		'members' => array('view_member', 'profile'),
-		'autos' => array('autos_add', 'autos_edit'),
-		'autos_parts' => array('autos_part_add', 'autos_part_edit'),
-		'autos_services' => array('autos_service_add', 'autos_service_edit'),
-		'articles' => array('submit_article', 'edit_article'),
-		'estates' => array('estate_submit', 'estate_edit'),
-		'listings' => array('add_listing', 'edit_listing')
-	);
+	$pages = [
+		'members' => ['view_member', 'profile'],
+		'autos' => ['autos_add', 'autos_edit'],
+		'autos_parts' => ['autos_part_add', 'autos_part_edit'],
+		'autos_services' => ['autos_service_add', 'autos_service_edit'],
+		'articles' => ['submit_article', 'edit_article'],
+		'estates' => ['estate_submit', 'estate_edit'],
+		'listings' => ['add_listing', 'edit_listing']
+	];
 
 	foreach ($data as $node)
 	{
@@ -50,32 +50,32 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 		switch($node['action'])
 		{
 			case '+':
-				if($iaDb->exists('`item` = :item AND `name` = :field_name', array('item' => $item, 'field_name' => $field), 'fields'))
+				if($iaDb->exists('`item` = :item AND `name` = :field_name', ['item' => $item, 'field_name' => $field], 'fields'))
 				{
-					$iaDb->update(array('status' => iaCore::STATUS_ACTIVE), "`name` = '$field' AND `item` = '$item'", null, 'fields');
+					$iaDb->update(['status' => iaCore::STATUS_ACTIVE], "`name` = '$field' AND `item` = '$item'", null, 'fields');
 				}
 				else
 				{
 					$sql = sprintf("ALTER TABLE `%s%s` ADD `%s` VARCHAR(%d) NOT NULL DEFAULT ''", $iaCore->iaDb->prefix, $item, $field, 128);
 					$iaDb->query($sql);
 
-					$id = $iaDb->insert(array(
+					$id = $iaDb->insert([
 						'module' => $plugin,
 						'item' => $item,
 						'name' => $field,
 						'type' => 'text',
 						'length' => 128,
 						'status' => iaCore::STATUS_ACTIVE
-					), false, 'fields');
+					], false, 'fields');
 					if (isset($pages[$item]))
 					{
-						$rows = array();
+						$rows = [];
 						foreach ($pages[$item] as $page)
 						{
-							$rows[] = array(
+							$rows[] = [
 								'page_name' => $page,
 								'field_id' => $id
-							);
+							];
 						}
 						$iaDb->insert($rows, false, 'fields_pages');
 					}
@@ -85,7 +85,7 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 				break;
 
 			case '-':
-				$iaDb->update(array('status' => iaCore::STATUS_APPROVAL), "`name` = '$field' && `item` = '$item'", null, 'fields');
+				$iaDb->update(['status' => iaCore::STATUS_APPROVAL], "`name` = '$field' && `item` = '$item'", null, 'fields');
 		}
 	}
 }
