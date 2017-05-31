@@ -38,7 +38,8 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType()) {
     $field = 'youtube_video';
 
     if (in_array($item, $enabled_items)) {
-        if ($url = $iaDb->one($field, iaDb::convertIds($listing), $item)) {
+        $itemTable = $iaCore->factory('item')->getItemTable($item);
+        if ($url = $iaDb->one($field, iaDb::convertIds($listing), $itemTable)) {
             if (preg_match('/^(http\:\/\/|https\:\/\/)?(www\.)?youtube\.com\/watch\?([\w=\-&]+&)?v=[\w\-]+((&|\?|#)[\w=\-&]+)?$/si', $url)) {
                 $url = parse_url($url);
                 parse_str($url['query'], $url);
