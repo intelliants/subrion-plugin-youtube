@@ -4,25 +4,27 @@
     <summary>Makes possible to assign a video from Youtube</summary>
     <author>Intelliants LLC</author>
     <contributor>Intelliants LLC</contributor>
-    <version>4.1.1</version>
-    <date>2017-05-31</date>
-    <compatibility>4.1</compatibility>
+    <version>4.2.0</version>
+    <date>2018-03-13</date>
+    <compatibility>4.2</compatibility>
 
     <phrases>
         <phrase category="common" key="youtube_video">Youtube video</phrase>
     </phrases>
 
-    <config group="miscellaneous" name="youtube" type="divider" description="Youtube">Youtube</config>
-    <config group="miscellaneous" name="youtube_items_enabled" type="itemscheckbox" description="List of items Youtube is enabled for"><![CDATA[members]]></config>
-    <config group="miscellaneous" name="youtube_items_implemented" type="hidden" description="">member,article,listing,estate,auto,autos_part,autos_service,coupon,shop,venue</config>
+    <configgroup name="youtube_video">Youtube Video</configgroup>
+
+    <config group="youtube_video" name="youtube" type="divider" description="Youtube">Youtube</config>
+    <config group="youtube_video" name="youtube_items_enabled" type="itemscheckbox" description="List of items Youtube is enabled for"><![CDATA[members]]></config>
+    <config group="youtube_video" name="youtube_items_implemented" type="hidden" description="">member,article,listing,estate,auto,autos_part,autos_service,coupon,shop,venue</config>
 
     <fields>
         <field name="youtube_video" item="members" type="text" group="general" page="profile" length="128">Youtube Video</field>
     </fields>
 
     <hooks>
-        <hook name="phpViewListingBeforeStart" type="php" filename="hook.phpViewListingBeforeStart" page_type="front"><![CDATA[]]></hook>
-        <hook name="smartyItemViewBeforeTabs" type="smarty" filename="tab" page_type="front"><![CDATA[]]></hook>
-        <hook name="phpPackageItemChangedForPlugin" type="php" filename="hook.phpPackageItemChangedForPlugin" page_type="admin"><![CDATA[]]></hook>
+        <hook name="phpViewListingBeforeStart" type="php" filename="hook.phpViewListingBeforeStart.php" page_type="front"><![CDATA[]]></hook>
+        <hook name="smartyItemViewBeforeTabs" type="smarty" filename="tab.tpl" page_type="front"><![CDATA[]]></hook>
+        <hook name="phpPackageItemChangedForPlugin" type="php" filename="hook.phpPackageItemChangedForPlugin.php" page_type="admin"><![CDATA[]]></hook>
     </hooks>
 </module>
